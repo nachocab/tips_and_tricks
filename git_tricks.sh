@@ -109,3 +109,8 @@ git reflog
 # go back to older commit
 git checkout "@{10 minutes ago}"
 git checkout "@{5}"
+
+# add a remote branch
+git remote add origin git@github.com:username/Hello-World.git
+git pull origin master
+git push -u origin master
