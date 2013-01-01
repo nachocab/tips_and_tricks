@@ -1,4 +1,1 @@
-tips_and_tricks
-===============
-
-The tips I need to remember and always forget about R, bash, awk, and other beauties
+Every code snippet that I have had to look up twice gets added here (R, bash, ruby, python, awk, and other beauties).

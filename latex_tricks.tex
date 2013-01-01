@@ -18,6 +18,9 @@ $\cap$
 $\lim_{N \to +\infty}$
 
 
+% italics
+\emph{blah blah}
+
 % plus or minux
 \pm
 
@@ -48,11 +51,15 @@ $\partial$
 \hat{o}
 
 % tilde
-\tilde{a} \acute{a} \bar{a} \dot{a} \breve{a} \check{a} \grave{a} \vec{a} \ddot{a}          
+\tilde{a} \acute{a} \bar{a} \dot{a} \breve{a} \check{a} \grave{a} \vec{a} \ddot{a}
+
+% go back to text mode literal verbatim text during math
+$\log_2 \frac{2^{-∆Ct}\mbox{ target genes}}{2^{-∆Ct}\mbox{ housekeeping gene}}$
+$\log_2 \frac{2^{-∆Ct}\text{ target genes}}{2^{-∆Ct}\text{ housekeeping gene}}$
 
 % literal text, don't interpret, allow all spaces and indentations
 \begin{verbatim}
-    
+
 \end{verbatim}
 
 % insert image
@@ -63,6 +70,9 @@ $\partial$
       % \label{fig:biogenesis}
 \end{figure}
 
+% reference figure
+Figure~\ref{fig:mds}
+
 % Figure positioning
 h   Place the float here, i.e., approximately at the same point it occurs in the source text (however, not exactly at the spot)
 t   Position at the top of the page.
@@ -70,6 +80,10 @@ b   Position at the bottom of the page.
 p   Put on a special page for floats only.
 !   Override internal parameters LaTeX uses for determining "good" float positions.
 H   Places the float at precisely the location in the LaTeX code. Requires the float package,[1] e.g., \usepackage{float}. This is somewhat equivalent to h!.
+
+% Less than or greater than
+<
+>
 
 % Less than or equal to ≤
 \leq
@@ -88,3 +102,6 @@ H   Places the float at precisely the location in the LaTeX code. Requires the f
 \end{align*}
 % square root cubic
 $\sqrt[3]{x+y}$
+
+% citations
+http://blog.mendeley.com/tipstricks/howto-use-mendeley-to-create-citations-using-latex-and-bibtex/

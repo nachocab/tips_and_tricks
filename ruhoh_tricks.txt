@@ -1,0 +1,258 @@
+# TODO:
+add an .ico
+upload knitr_reports to your github
+style website
+  style code blocks, syntax and wrap lines
+
+# install ruhoh
+gem install ruhoh
+
+# create a github repository called nachocab.ruhoh.com
+settings|service hooks|add the webhook http://post.ruhoh.com
+
+# Map to nachocab.ruhoh.com
+go to http://post.ruhoh.com
+use nachocab/jos to log in to NameCheap.com, click on nachocab.ruhoh.com | All host records | 50.116.20.239 | Save Changes
+
+# clone the ruhoh git repo and push your own copy to your repo
+git clone git://github.com/ruhoh/blog.git nachocab.ruhoh.com
+cd nachocab.ruhoh.com
+git remote set-url origin git@github.com:nachocab/nachocab.ruhoh.com.git
+git push origin master
+
+# run local server that autodetects changes.
+rackup -p 9292
+
+# View blog
+http://localhost:9292/
+http://localhost:9292/dash # dashboard, lists all pages
+
+# Update blog. Every commit you push to your GitHub master will trigger an update on your ruhoh.com blog.
+# make some change, save, test locally: http://localhost:9292/
+git add .
+git ci -m "Changed something"
+git push
+
+# Create a new post (sets the date)
+ruhoh post # draft: posts/untitled-post.md
+ruhoh post "The Next Big Thing" # the-next-big-thing.md
+
+# Rename drafts (untitled posts) after you specify the post title in YAML
+ruhoh titleize # Renamed posts/untitled-post.md to: posts/my-title-post.md
+
+# folder structure
++-main/
+  |-log.txt # logs
+  |-config.yml # global config
+  |-dash.html
+  |-site.yml
+  +-compiled/
+  +-themes/
+    +-twitter/ # name of theme
+      +-javascripts/
+      +-layouts/
+        |-default.html  # main page
+        |-page.html # individual pages
+        |-post.html # individual posts
+  +-widgets/
+  +-media/
+  | +-my-media-file.png # <img src="{{urls.media}}/my-media-file.jpg">
+  +-partials/
+  +-plugins/
+  +-posts/
+  | +-
+  +-pages/
+    |-about.md
+    +-projects/
+      |-android.md
+
+
+# code highlighting is done using google prettify, you can change the theme in themes/twitter/theme.yml
+
+# post/draft options
+---
+date : '2012-04-12'
+categories : # or use multilevel categories "code/android/games", or multiple categories ["code","games"] or in yaml format
+  - code
+tags :
+    - javascript
+    - tutorial
+title: My post
+permalink: '/blog/:month/:year:/:title'
+
+layout : 'super-post' # custom layout on a per-post basis, default is 'post' (post.html)
+type : draft # if a draft
+---
+
+
+# Create a new page stub
+ruhoh pages about.md # pages/about.md
+ruhoh pages projects/android.md # # pages/projects/android.md
+ruhoh pages projects/android --ext .html # # pages/projects/android.html
+ruhoh pages projects/android # pages/projects/android/index.md
+
+# page options
+permalink: 'pretty'
+
+
+
+
+
+
+
+
+# Create a layout
+ruhoh layout leanback
+
+# Compile to static website.
+ruhoh compile
+
+# Create a new draft. Post title is optional. Drafts are viewed as posts in development mode
+ruhoh draft <title>
+
+# List all drafts.
+ruhoh drafts
+
+# config.ru
+require 'rack'
+require 'ruhoh'
+run Ruhoh::Program.preview(:env => 'production') # use development to see drafts as posts
+
+# global settings config.yml
+theme : 'theme-name'
+production_url : 'http://nachocab.ruhoh.com'
+pages:
+    permalink: 'pretty' # using index.html
+posts :
+    exclude: ['~$', '^_posts\/crappy_posts\/'] # regex
+    layout : 'super-post'
+    summary_lines : 30
+    latest : 10
+    permalink : '/:categories/:title' # :year, :month, :day, :title, :filename (not including path), :categories (first category), :i_month (month from the filename), :i_day (day from the filename)
+pages:
+    exclude: ['~$', '^crappy_pages\/'] # regex
+    layout: 'custom-layout'
+
+# Templates (Mustache)
+{{function_name}} # escaped variable
+{{{function_name}}} # unescaped variable
+
+# page object.
+page.id
+page.url # url/permalink: <a href="{{page.url}}">{{page.title}}</a>
+page.title # <h1>{{ page.title }}</h1>
+page.date
+page.layout
+page.sub_layout
+page.master_layout
+
+# Any data added to a page's YAML meta-data is available to the page object
+---
+title: Oh Happy Day
+icon : sun # page.icon
+days : # page.days
+  - monday
+  - tuesday
+---
+
+# site object contains info from site.yml (ex: navigational lists) and everything from config.yml in site.config
+---
+author:
+    name: Nacho Caballero # <li>Author: {{ site.author.name }}</li>
+    email: nachocab@gmail.com
+
+navigation:
+  - index.md
+  - about.md
+  - projects/startup.html
+  - contact.md
+---
+
+# urls
+urls.theme_stylesheets
+urls.theme_javascripts # <link href="{{ urls.theme_stylesheets }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+urls.theme_media
+urls.media
+
+
+# Mustache sections render blocks of text one or more times, depending on the value of the key in the current context. If key is false => never displayed, if true => displayed once, if list => displayed once per item.
+{
+  "person": true,
+}
+{{#person}} # begin person section
+  Show person
+{{/person}} # end person section
+
+{
+  "repo": [
+    { "name": "resque" },
+    { "name": "hub" },
+    { "name": "rip" },
+  ]
+}
+{{#repo}}
+  <b>{{name}}</b> # <b>resque</b> <b>hub</b> <b>rip</b>
+{{/repo}}
+
+{{# posts }} # also, you can use {{# posts_latest}}, {{{summary}}}, {{# categories}}, {{# tags}}
+  <li><a href="{{url}}">{{title}}</a></li>
+{{/ posts }}
+
+# inverted sections (!)
+{{^repo}}
+  No repos :(
+{{/repo}}
+
+{{# is_active_page }}
+  <li class="active"><a href="{{ url }}" class="active">{{ title }}</a></li>
+{{/ is_active_page }}
+{{^ is_active_page }}
+  <li><a href="{{ url }}">{{ title }}</a></li>
+{{/ is_active_page }}
+
+
+# comment
+{{! ignore me }}
+
+# partial
+{{> next_more}}
+
+# contextual helpers
+{{# site.navigation?to_pages }} # site.yml navigation: expand to page object
+  <li><a href="{{url}}">{{title}}</a></li>
+{{/ site.navigation?to_pages }}
+
+{{# db.posts.categories.ruby.posts?to_posts }} # expand to post object
+  <li><a href="{{url}}">{{title}}</a></li>
+{{/ db.posts.categories.ruby.posts?to_posts }}
+
+{{# page?next }}
+  Newer: <a href="{{ url }}">{{ title }}</a></li>
+{{/ page?next }}
+
+{{# page.categories?to_categories }}
+  <li><a href="{{url}}">{{name}} <span>{{count}}</span></a></li>
+{{/ page.categories?to_categories }}
+
+
+# show help
+ruhoh help
+
+# List all posts.
+ruhoh posts
+
+# List all pages.
+ruhoh pages
+
+# List the full payload hash as given to the templater. It shows what is available to your templates
+ruhoh payload
+ruhoh payload | subl
+
+# Create a new layout for the currently active theme.
+ruhoh layout <name>
+
+# Create a new theme scaffold.
+ruhoh theme <name>
+
+# create a new blog (using scaffold)
+ruhoh new myblog

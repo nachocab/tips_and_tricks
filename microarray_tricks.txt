@@ -1,0 +1,53 @@
+# Batch effect => technical source of variation that was added to the samples during handling.
+
+MDS plot
+    color by category
+    color by platform/date
+    see if the clusters are mixed or not
+
+Use quantile normalization for Affy
+
+# mean
+X_bar = (1/M)Sum_1^M(X_i)
+Y_bar = (1/N)Sum_1^N(Y_i)
+
+# variance (standard dev squared) (within-group)
+(1/M-1)Sum_1^M(X_i - X_bar)^2 (population X, observations X)
+(1/N-1)Sum_1^N(Y_i - Y_bar)^2
+
+# Welch's t-test => the two population variances are assumed to be different and must be estimated separately, used to calculate if two population means are difference
+(Y_bar - X_bar)/sqrt(var_y/N + var_X/M)
+
+(Y_bar - X_bar)=M-value
+
+The t-test is not good for small sample sizes because we don't have enough data to estimate the variability, and therefore we "underestimate" the denominator (the t-test is not very powerful)
+
+So, we borrow strength from all the genes to estimate the SD from a specific gene (see empirical bayes). =>
+
+
+We look at the variances across arrays for all genes N, we use the distribution of all variances as the prior distribution for each variance. If the sample variance is tiny for a given gene, and we look at all the genes and see that such tiny variances (and therefore, very low p-values) are very rare, we shrink the p-value (we use a prior of inverse chi-square, there is a mathematically convenient formula that tells us how to shrink p-values).
+
+
+#Standard error: the SD of the sampling distribution of a statistic (or also, the estimate of the SD of the population, computed from the current sample)
+Ex: the sample mean is the usual estimator of the population mean
+    diff samples from that population will have different mean values.
+
+    The standard error of the mean (the SE of using the sample mean to estimate the population mean) is the SD of all the possible sample means (of the same size) drawn from the population.
+    SE is an estimate of how close to the pop. mean your sample mean is likely to be
+
+    The standard error of the regression is the ordinary least squares estimate of the SD of the underlying errors.
+
+# empirical Bayes
+We plot the distribution of the standard errors of each gene
+We shrink the small values up toward the mean, and the high values down toward the mean.
+
+If we see a gene with a very small variance and we see that variances like that are very rare (based on the distribution of all genes) => we shrink it back based on sample size and mean variance.
+
+# background correction
+BC improves accuracy, but it increases variance. We correct for the background taking over the signal at low intensities.
+
+In practice, many people don't BC, and instead normalize: estimate the bias and remove it. We assume that the cloud of points is around zero: most genes are not differentially expressed.
+
+# normalize
+We estimate the curve (bias) in the MA plot using LOESS. Then we make it straight.
+

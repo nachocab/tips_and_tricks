@@ -1,0 +1,137 @@
+# look for help
+Help:whatever
+
+# italic (2)
+''italic''
+
+# bold (3)
+'''bold'''
+
+# bold and italic (5)
+'''''bold and italic'''''
+
+# External link
+[[Name of page]]
+[[Name of page|Text to display]]
+[[apple]]s # links to Apple, but shows "apples" as link
+[[Life]]long # links to Life, but shows "lifelong" as link
+
+# Internal link
+[[#Heading name]]
+[[#Heading name|A name]]
+
+# Image
+[[File:Wiki.png|thumb|alt=text|This is the caption]]
+[[File:Wiki.png|thumb|60px|alt=text|Caption]] # add size
+
+
+# Templates
+{{example}} # This is an example of a template. For help with templates, see Help:Template.
+{{smallcaps|This Text}} # THIS TEXT
+{{convert|29|km|mi}} # 29 kilometres (18 mi)
+{{fact}} # citation needed
+
+{{Use dmy dates|date=July 2012}}
+
+# About template
+{{About|the hemorrhagic fever-causing Lassa virus|the rabiform virus|Lyssavirus}} # This article is about the hemorrhagic fever-causing Lassa virus. For the rabiform virus, see Lyssavirus.
+
+{{Taxobox
+| name             = ''Lassa virus''
+| image            = Lassa virus.JPG
+| image_width      = 200 px
+| image_caption    = [[Transmission electron microscopy|TEM]] [[micrograph]] of ''Lassa virus'' [[Virion#Structure|virions]].
+| virus_group      = v
+| familia          = ''[[Arenavirus|Arenaviridae]]''
+| genus            = ''[[Arenavirus]]''
+| species          = '''''Lassa virus'''''
+}}
+
+{{Infobox disease
+ | Name            = Lassa Fever
+ | Image           =
+ | Caption         =
+ | ICD10           = {{ICD10|A|96|2|a|90}}
+ | ICD9            = {{ICD9|078.8}}
+ | ICDO            =
+ | OMIM            =
+ | DiseasesDB      = 7272
+ | MedlinePlus     =
+ | eMedicineSubj   =
+ | eMedicineTopic  =
+ | MeshID          = D007835
+}}
+
+{{redir|AIDS virus|the computer virus|AIDS (computer virus)}}
+
+{{pp-semi|small=yes}}
+
+# Redirect
+#REDIRECT [[Target page]] # place at start of first line
+#REDIRECT [[Target page#anchorName]] # redirect to section
+
+# Section headings (level 1 is for page titles, don't use)
+==Level 2== # section heading
+===Level 3=== # subsection
+====Level 4====
+=====Level 5=====
+======Level 6======
+
+# Nonindexed headers: for defined terms
+; Header name
+
+# bulleted list
+* One
+* Two
+** Two point one
+* Three
+
+# numbered list
+# One
+# Two
+## Two point one
+# Three
+
+# indenting text
+no indent (normal)
+:first indent
+::second indent
+:::third indent
+
+# Footnote references
+Hello,<ref>Encyclopædia Britannica</ref> World.<ref>http://www.w3.org/</ref> # Hello,[1] World.[2]
+
+== References ==
+{{Reflist}} # ^ Encyclopædia Britannica
+            # ^ http://www.w3.org/
+
+{{Reflist|2}} # 2 columns
+
+# cite journal
+<ref>{{cite journal |author=Frame JD, Baldwin JM, Gocke DJ, Troup JM |title=Lassa fever, a new virus disease of man from West Africa. I. Clinical description and pathological findings |journal=Am. J. Trop. Med. Hyg. |volume=19 |issue=4 |pages=670–6 |date=1 July 1970|pmid=4246571 |url=http://www.ajtmh.org/cgi/content/abstract/19/4/670 }}</ref>
+
+# Named references
+<ref name=Ogbu_2007>{{cite journal |author=Ogbu O, Ajuluchukwu E, Uneke CJ |title=Lassa fever in West African sub-region: an overview |journal=Journal of vector borne diseases |volume=44 |issue=1 |pages=1–11 |year=2007 |pmid=17378212 |doi=}}</ref>
+
+<ref name=Ogbu_2007 /> # then you can use it again
+
+# Cite doi
+<ref name=Example2006>{{Cite doi|10.1146/annurev.earth.33.092203.122621|noedit}}</ref>
+<ref name=Example2006/> # use again
+
+# cite web
+{{cite web |url= |title= |last= |first= |author= |authorlink= |last2= |first2= |author2= |authorlink2= |date= |month= |year= |work= |publisher= |location= |page= |pages= |at= |language= |trans_title= |type= |format= |arxiv= |asin= |bibcode= |doi= |doibroken= |isbn= |issn= |jfm= |jstor= |lccn= |mr= |oclc= |ol= |osti= |pmc = |pmid= |rfc= |ssrn= |zbl= |id= |archiveurl= |archivedate= |deadurl= |accessdate= |quote= |ref= |separator= |postscript=}}
+
+{{cite web |url = http://www.example.org/ |title = My Favorite Things, Part II |author = Doe, John |date = 30 April 2005 |work = Encyclopedia of Things |accessdate = 6 July 2005 }}
+
+# horizontal line
+----
+
+# Table of contents: the page must have at least four headings,
+__TOC__ # force it to appear at location, otherwise it appears in front of the first header
+__NOTOC__ # no table of contents
+
+# blockquote
+<blockquote>blah blah</blockquote>
+
+

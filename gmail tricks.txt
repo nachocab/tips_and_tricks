@@ -1,0 +1,1 @@
+* then t: select visible unstarred conversations

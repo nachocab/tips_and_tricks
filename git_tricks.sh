@@ -1,11 +1,45 @@
+# reference
+http://gitref.org/index.html
+
+# undo git add - unadd, remove from index?
+git reset
+
+# create a new repository in github
+touch README.md
+git init
+git add . && git commit -m "It begins."
+git create -d "My new thing" # (using hub: creates a new project on GitHub with the name of current directory)
+git push -u origin master
+
+# git remote add origin https://github.com/nachocab/leanback.git
+
+# push to created repository (origin)
+git push -u origin master
+
 # discard unsaved changes from file(s) and restore an old version: commit first!
 git co 82f5 my_old_file my_other_old_file
 
-# remove a file from git index and the filesystem
+# remove a file from git index and the filesystem (use --cached to not remove it)
 git rm my_file
 git rm -r my_dir/
-# remove a file from git index: unstage it.(but don't remove it from filesystem)
+
+# remove a file from git index: unstage it.(but don't remove it from filesystem) reset staged changes
 git rm --cached my_file
+
+# unstage a file (removes the modification from the index, no the entire file)
+git reset my_file
+
+# discard unstaged changes on a single file
+git checkout path/to/file
+
+# discard all unstaged changes,
+git checkout -- .
+
+# find search text string contents
+git grep <regexp> $(git rev-list --all)
+
+# revert reset reload, checkout file from previous commit and overwrite current version
+git co HEAD main.html
 
 # rename a file inside git
 git mv my_file your_file
@@ -25,7 +59,7 @@ git diff
 # show the names of the files with unstanged changes
 git diff --name-only
 # show unstanged contents compared to an older commit
-git diff HEAD~1
+git diff HEAD~ # the parent of HEAD
 git diff "@{yesterday}"
 git whatchanged --since="2 weeks ago"
 
@@ -88,6 +122,12 @@ git stash apply
 git commit --amend
 # add a file to the last commit
 git commit --amend -a
+
+# remove files from previous commit (made a mistake)
+git reset --soft HEAD^
+git rm --cached my_file
+git commit -c ORIG_HEAD
+git commit -C ORIG_HEAD # don't re-edit the commit message
 
 # delete every commit up to 766f
 git reset --hard 766f

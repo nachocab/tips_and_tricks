@@ -1,3 +1,13 @@
+# watch for changes and update site (http://octopress.dev/)
+rake watch
+
+# draft posts path
+~/Documents/Blog/
+
+# publish (from ~/Documents/Blog/nachocab.github.com)
+rake generate
+rake deploy
+
 # new post
 rake new_post['my new post']
 

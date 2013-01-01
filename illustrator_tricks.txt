@@ -1,0 +1,62 @@
+# Change keyboard shortcuts
+Edit | Keyboard shortcuts
+/Users/nacho/Library/Preferences/Adobe Illustrator CS5.1 Settings/en_US/my_illustrator_shortcuts.kys
+
+# change sRGB to a better color space
+/Library/Application Support/Adobe/Color/Settings/Best Workflow CS5.csf
+Edit|Color Settings | load | Best Workflow
+
+# Change keyboard increments
+Preferences | General | Keyboard Increments
+
+# Select objects by clicking on their path, not their fill (you can also do this with Type)
+Preferences | Selection & anchor display | object selection by path only
+
+# Increase layer preview size (this is an illustration level setting)
+Layers panel |options | 75 pts
+
+# Add panels
+Window | panel
+
+# Toggle hide/show panels
+TAB
+⇧ + Tab (hide right panels)
+
+# Toggle between Hide tabs/full screen or super full screen (or press windows at bottom of toolbar)
+F
+
+# Save a panel arrangement (custom workspace)
+Essentials | save custom workspace
+
+# Disable the bounding box (use rotate and scale tools)
+View | Show Bounding box
+
+# Useful shortcuts ⌘⌥⇧^
+⌘+0 zoom to fit
+
+# Use pathfinder to cookie-cut your illustrations
+
+# add downloaded brushes here
+/Users/nacho/Library/Application Support/Adobe/Adobe Illustrator CS5.1/en_US/Brushes/
+
+# duplicate around a point
+Select the object
+Select Rotate tool
+Alt click on the place where you want the origin to be
+choose angle
+Copy
+Cmd+D or Object|Transform|Transform again
+
+# transform each
+Object |transform |transform each
+cmd+shift+alt+d
+
+# Convert a path into its shape
+Object|expand path
+
+# round corners
+Effects | stylize | round corners
+object |expand appearance
+
+# Knife tool to break a path (useful) =>
+

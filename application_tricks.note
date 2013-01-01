@@ -1,13 +1,51 @@
+
+### Quicktime
+# playback speed (you don't even need to hit play)
+command + arrows
+
+### OSX
+# invert colors
+^⌘⌥8
+# zoom in
+^ + zoom with trackpad
+
+# login hooks, run on startup login
+sudo defaults write com.apple.loginwindow LoginHook my/app
+
 ### Chrome
-⌘⌥` - back history 
-⌘⌥+ - forward history 
+⌘⌥` - back history
+⌘⌥+ - forward history
 
 ### Sublime Text
+# new build
+"cmd": ["Rscript", "-e", "library(knitr)"] # use this
+"cmd": ["Rscript -e 'library(knitr)'"] # not this
+
+^Q - toggle record macro
+^⇧Q - run macro
+
+
+⌘F2 - toggle bookmark
+F2 - go to bookmark
+⌘⇧F2 - clear bookmarks
+
+select url + ^⌥u - open url in Chrome
+⌘⌥ arrows - switch tabs
+^+TAB - previous tab on stack
+^2 - Focus split window group 2
+^⇧2 - Move current file to split window group 2
+
 ⌘⌥ o - toggle overwrite
 ⌘⇧ p - choose action. Ex: Package Control
-^⌥⏎  - ZenCoding koan 
 ⌘⇧ h - HTMLpretiffy
 F6 - Spell Check
+F11 - Show console
+⌘K⌘D - skip while quick adding
+
+
+F7 - build tmLanguage from JSON-tmLanguage
+^D - diff with previously saved version of file
+
 
 
 ### SFTP
@@ -54,3 +92,12 @@ google calendar add "go to class at 2pm" --reminder 5m
 8
 9
 0
+
+### mldonkey
+telnet 127.0.0.1 4000
+s blah blah
+s -format pdf
+xs
+vr [num]
+d [num]
+c # connect to more servers
