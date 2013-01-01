@@ -1,0 +1,4 @@
+# Excel formats. Each cell has four sections:
+positive_zero_and_negative_numbers # 1 section
+positive_and_zero_numbers;negative_numbers # 2 sections
+positive_numbers;negative_numbers;zero_values;text_values # 4 sections
