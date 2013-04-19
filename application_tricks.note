@@ -1,6 +1,29 @@
+### BetterMarkdown sublime
+Asterisks and underscores are autopaired and will wrap selected text
+If you start an empty pair and hit backspace, both elements are deleted
+If you start an empty pair and hit space, the right element is deleted
+backticks are paired
+Left bracket pairing is modified to eliminate the selection and leave the cursor at a point where you can insert a [] or () pair for a link
+⌘⌥V will paste the contents of the clipboard as an inline link on selected text
+⌘⌥R will paste the contents of the clipboard as a reference link
+⌘⌥K inserts a standard inline link, ⌘⇧K inserts an inline image
+⌘⌥B and ⌘⌥I are bound to bold and italics (Markdown).
+~ triggers HTML <del></del> tags (strikethrough) to selected text
+Typing "#" when there’s a selection will surround it with "#" to make it a headline. Multiple presses add additional hashes, increasing the level of the header. Once you hit 6 hashes, it will reset to 0 on the next press. The match_header_hashes will determine if the # are mirrored on both sides or just at the beginning of the line.
+Typing return at the end of a line that begins with hashmarks will insert closing hashmarks on the headline. They’re not required for Markdown, it’s just aesthetics, and you can change the match_header_hashes option in your settings to disable.
+⌘^1 through ⌘^6 will add the corresponding number of hashmarks for headlines. Works on blank lines and selected text. in tandem with the above headline tools.
+⌘⇧6 will insert a footnote and jump to its definition. If your cursor is in a definition, it will jump back to the marker.
+⌥⇧F will locate footnote markers without definitions and insert the marker for the definition
+⌥⇧G will do the same for missing reference links
+
+### iTerm
+⌘⇧⌥ to move a window to a tab
+# set up profiles|keys|xterm with numeric keypad
+# choose +, option left arrow, send escape sequence, b
+# choose +, option right arrow, send escape sequence, f
 
 ### Quicktime
-# playback speed (you don't even need to hit play)
+# playback speed (you don’t even need to hit play)
 command + arrows
 
 ### OSX
@@ -17,13 +40,42 @@ sudo defaults write com.apple.loginwindow LoginHook my/app
 ⌘⌥+ - forward history
 
 ### Sublime Text
+
+{
+    "line_numbers": false,
+    "gutter": false,
+    "draw_centered": true,
+    "wrap_width": 80,
+    "word_wrap": true,
+    "scroll_past_end": true
+}
+
+
+# select all
+cmd+ctrl+g
+
+# change case camel
+To snake_case: "ctrl+alt+c", "ctrl+alt+s"
+to camelCase: "ctrl+alt+c", "ctrl+alt+c"
+
+# change theme (font size sidebar)
+/Users/nacho/Library/Application Support/Sublime Text 2/Packages/Theme - Default/Default.sublime-theme
+
+# close old tabs (tidytabs)
+ctrl+alt+w
+
+# create new file from current path
+cmd+alt+n
+
 # new build
 "cmd": ["Rscript", "-e", "library(knitr)"] # use this
-"cmd": ["Rscript -e 'library(knitr)'"] # not this
+"cmd": ["Rscript -e ’library(knitr)’"] # not this
+
+# open selection in chrome
+^⌥U
 
 ^Q - toggle record macro
 ^⇧Q - run macro
-
 
 ⌘F2 - toggle bookmark
 F2 - go to bookmark
