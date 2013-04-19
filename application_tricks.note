@@ -40,7 +40,7 @@ sudo defaults write com.apple.loginwindow LoginHook my/app
 ⌘⌥+ - forward history
 
 ### Sublime Text
-dkdàdd
+
 {
     "line_numbers": false,
     "gutter": false,
@@ -93,7 +93,7 @@ select url + ^⌥u - open url in Chrome
 F6 - Spell Check
 F11 - Show console
 ⌘K⌘D - skip while quick adding
-
+^º console
 
 F7 - build tmLanguage from JSON-tmLanguage
 ^D - diff with previously saved version of file
