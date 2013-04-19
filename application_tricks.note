@@ -40,7 +40,7 @@ sudo defaults write com.apple.loginwindow LoginHook my/app
 ⌘⌥+ - forward history
 
 ### Sublime Text
-
+dkdàdd
 {
     "line_numbers": false,
     "gutter": false,
