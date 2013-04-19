@@ -94,7 +94,7 @@ F6 - Spell Check
 F11 - Show console
 ⌘K⌘D - skip while quick adding
 ^º console
-
+ddd  d
 F7 - build tmLanguage from JSON-tmLanguage
 ^D - diff with previously saved version of file
 
